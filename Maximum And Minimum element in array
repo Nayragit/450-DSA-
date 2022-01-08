@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n;                                                                                                      example : 4
+  cin>>n;                                                                                                               10 5 7 30
+	int arr[n];                                                                                                           max =0 , now loop chala 10 ar max k zero se compare karo 
+	for(int i=0;i<n;i++){                                                                                                   10 big hai zero se so ab max = 10 ho gaya waise hi sab karna hai 
+	    cin>>arr[i];                                                                                                                                                                            then we get to 5 now copare max and 5 max is big so no change in max
+	}
+	int max = 0;
+	for(int i=0;i<n;i++){
+	    if(arr[i]>max){
+	        max = arr[i];
+	    }
+	}
+	cout<<max<<endl;
+  
+  // min ko 100000000 se intialise kia gaya hai becoz we dont the element we take it from the users
+  
+	int min =1000000000;
+	for(int i =0;i<n;i++){
+	   if(arr[i]<min){
+	       min = arr[i];
+	   }
+	}
+	cout<<min<<endl;
+	return 0;
+}
