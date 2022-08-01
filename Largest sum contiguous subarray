@@ -1,0 +1,80 @@
+TIME COMPEXITY : O(N^2)
+SPACE COMPLEXITY : O(1)
+USING KADANES ALGORITHM
+7
+7 5 -13 5 10 -2 5
+max_th = 7,7+5 = 12, 12+(-13) = -1 , 0, 0+5 = 5, 5+10 = 15 , 15+(-2)=13, 13+5 = 18
+max_th > max
+12>7 true to ab max hoga 12 , ab -1 hua to jaise -ve aaya to max mein koi change nai hoga but max_th = 0 ho jaayega 
+5>12 false to max still 12
+15>12 true ab ax hoga 15
+13>15 false
+18>15 true to ab 18 hoga max
+max = 7, 12 ,15,18
+so max is 18
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+//  USING KADANES ALGORITHMS 
+
+int main() {
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i = 0;i<n;i++){
+	    cin>>arr[i];
+	}
+	int max = INT_MIN;
+	int max_th = 0;
+	for(int i = 0;i<n;i++){
+	    max_th = max_th + arr[i];
+	    if(max_th > max){
+	        max = max_th;
+	    }
+	   // agar max_th -ve hua to 
+	    if(max_th < 0){
+	        max_th = 0;
+	    }
+	}
+	cout<<max;
+	return 0;
+}
+
+APPROACH 2 
+
+TIME COMPLEXITY : O(N^3)
+SPACE COMPLEXITY : 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+//  BRUTE APPROACH 
+
+int main() {
+	int n;
+	cin>>n;
+	int arr[n];
+	for(int i = 0;i<n;i++){
+	    cin>>arr[i];
+	}
+	int max = INT_MIN;
+	for(int i = 0;i<=n;i++){
+	    for(int j = i;j<=n;j++){
+	       int sum = 0;
+	       for(int k = i;k<=j;k++){
+	           sum = sum+arr[k];
+	       }
+	       if(sum > max){
+	           max = sum;
+	       }
+	    }
+	}
+	
+	cout<<max;
+	return 0;
+}
+
+
